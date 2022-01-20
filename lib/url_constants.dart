@@ -1,0 +1,24 @@
+const BASE_URL = "https://dms.diwecs.com:8090/amc/";
+const LOGIN_URL = BASE_URL + "api/profiles/";
+const SIGNUP_URL = BASE_URL + "user/";
+const HOME_DETAILS_URL = BASE_URL + "home/";
+const RANDOM_AD_URL = BASE_URL + "advert/random";
+const CHOIRS_URL = BASE_URL + "choir/";
+const MEDIA_URL = BASE_URL + "media/type/";
+const MEDIA_TYPE_URL = BASE_URL + "media/";
+const CONFIRM_DOWNLOAD_URL = BASE_URL + "download/";
+const COMMENT_URL = BASE_URL + "comment/";
+const REQUEST_PAY_URL = BASE_URL + "mpesa/pay";
+const PAYMENT_CALLBACK_URL = BASE_URL + "payment/status/";
+const REQUEST_OTP_URL = BASE_URL + "otp/";
+const VERIFY_OTP_URL = BASE_URL + "otp/verify";
+const GET_ALL_CHURCHES_URL = BASE_URL + "church/";
+const GET_PENDING_DOWNLOADS_URL = BASE_URL + "download/";
+const GET_ALL_CATEGORY_ARTICLES_URL = BASE_URL + "article/category/";
+const GET_ARTICLE_URL = BASE_URL + "article/";
+const GET_ALL_SCRIPTURES_URL = BASE_URL + "scripture/";
+const GET_ALL_ADVERTS = BASE_URL + "advert/";
+const LOG_OUT_URL = BASE_URL + "auth/logout";
+const USER_PROFILE_URL = BASE_URL + "user/profile";
+const CHANGE_PIN_URL = BASE_URL + "user/profile/pin";
+
