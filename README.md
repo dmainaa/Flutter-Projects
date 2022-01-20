@@ -1,6 +1,6 @@
 # amc
 
-A simple content dispatch application to memmbers of local churches in Kenya.
+A simple content dispatch application to members of local churches in Kenya.
 
 ## Key Technologies Integrated
 Dependency Injection (Get X).
