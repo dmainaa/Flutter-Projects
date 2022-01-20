@@ -1,10 +1,14 @@
 # amc
 
-A new Flutter application.
+A simple content dispatch application to memmbers of local churches in Kenya.
 
-## Getting Started
+## Key Technologies Integrated
+Dependency Injection (Get X).
+Third-Party Multimedia Packages.
+Rest API Integration
 
-This project is a starting point for a Flutter application.
+
+
 
 A few resources to get you started if this is your first Flutter project:
 
