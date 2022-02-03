@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Denis%20Maina/AndroidStudioProjects/Advanced%20Flutter/flutter_advanced/lib/presentation/resources/color_manager.dart';
-import 'file:///C:/Users/Denis%20Maina/AndroidStudioProjects/Advanced%20Flutter/flutter_advanced/lib/presentation/resources/font_manager.dart';
-import 'file:///C:/Users/Denis%20Maina/AndroidStudioProjects/Advanced%20Flutter/flutter_advanced/lib/presentation/resources/style_manager.dart';
-import 'file:///C:/Users/Denis%20Maina/AndroidStudioProjects/Advanced%20Flutter/flutter_advanced/lib/presentation/resources/value_manager.dart';
+import 'package:tutapp/presentation/resources/color_manager.dart';
+import 'package:tutapp/presentation/resources/font_manager.dart';
+import 'package:tutapp/presentation/resources/style_manager.dart';
+import 'package:tutapp/presentation/resources/value_manager.dart';
+
 
 ThemeData getApplicationTheme(){
   return ThemeData(

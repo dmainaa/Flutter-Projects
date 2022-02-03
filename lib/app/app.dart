@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Denis%20Maina/AndroidStudioProjects/Advanced%20Flutter/flutter_advanced/lib/presentation/resources/theme_manager.dart';
+
 import 'package:tutapp/presentation/resources/routes_manager.dart';
+import 'package:tutapp/presentation/resources/theme_manager.dart';
 
 class MyApp extends StatefulWidget {
   MyApp._internal();//Private named constructor

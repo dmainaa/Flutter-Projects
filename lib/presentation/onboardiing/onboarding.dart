@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tutapp/domain/model.dart';
+import 'package:tutapp/domain/model/model.dart';
+
 import 'package:tutapp/presentation/onboardiing/onboarding_viewmodel.dart';
 import 'package:tutapp/presentation/resources/assets_manager.dart';
 import 'package:tutapp/presentation/resources/color_manager.dart';
+import 'package:tutapp/presentation/resources/routes_manager.dart';
 import 'package:tutapp/presentation/resources/strings_manager.dart';
 import 'package:tutapp/presentation/resources/value_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,6 +16,8 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
+
+
 
 
 
@@ -79,7 +83,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           children: [
             Align(
               alignment: Alignment.centerRight,
-              child: TextButton(onPressed: () {}, child: Text(
+              child: TextButton(onPressed: () {Navigator.pushReplacementNamed(context, Routes.loginRoute);}, child: Text(
                 AppStrings.skip, style: Theme.of(context).textTheme.subtitle2, textAlign: TextAlign.end,
               )),
             ),
