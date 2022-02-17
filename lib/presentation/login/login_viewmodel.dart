@@ -5,6 +5,8 @@ import 'dart:async';
 import 'package:tutapp/domain/usecase/login_usecase.dart';
 import 'package:tutapp/presentation/base/baseviewmodel.dart';
 import 'package:tutapp/presentation/common/freezed_data_classes.dart';
+import 'package:tutapp/presentation/common/state_renderer/state_renderer.dart';
+import 'package:tutapp/presentation/common/state_renderer/state_renderer_impl.dart';
 
 class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewModelOutputs {
 
@@ -21,7 +23,7 @@ class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewM
 
   @override
   void start() {
-
+    inputState.add(ContentState());
   }
 
 
@@ -94,11 +96,16 @@ class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewM
 
   @override
   login() async{
+    inputState.add(LoadingState(StateRendererType.POPUP_LOADING_STATE, null));
     print('Login has been called');
     (await _loginUseCase.execute(LoginUseCaseInput(loginObject.username, loginObject.password))).fold((failure) => {
-        print(failure.message)
+        inputState.add(ErrorState(StateRendererType.POPUP_ERROR_STATE, failure.message))
+
     }, (data) => {
-        print(data.customer?.name)
+
+        inputState.add(ContentState())
+
+
     });
   }
 

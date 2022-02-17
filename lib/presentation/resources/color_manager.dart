@@ -11,6 +11,7 @@ class ColorManager{
   static Color darkprimary = Color(0xFFd17d11);
   static Color grey1 = Color(0xFF707070);
   static Color grey2  = Color(0xFF737477);
+  static Color darkBlue  = Color(0xFF0000EE);
 
   static Color error = Color(0xFFe61f34);
 

@@ -7,7 +7,7 @@ import 'package:tutapp/presentation/resources/strings_manager.dart';
 
 class OnboardingViewModel extends BaseViewModel with OnBoardingViewModelInputs, OnBoardingViewModelOutputs{
 
-  final StreamController _streamController = StreamController<SlideViewObject>();
+   final  StreamController _streamController = StreamController<SlideViewObject>();
 
   late List<SliderObject> _list;
 

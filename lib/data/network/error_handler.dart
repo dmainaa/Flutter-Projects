@@ -26,6 +26,7 @@ class ResponseCode{
       static const int UNAUTHORISED = 401;
       static const int NOT_FOUND = 404;
       static const int INTERNAL_SERVER_ERROR = 500;
+      static const int DEFAULT = 0;
 
       //local status code
       static const int UNKNOWN = -1;
@@ -83,6 +84,8 @@ class ErrorHandler implements Exception{
   ErrorHandler.handle(dynamic error){
     if(error is DioError){
 
+      failure = _handleError(error);
+
     }else{
 
       failure = DataSource.DEFAULT.getFailure();
@@ -128,6 +131,7 @@ class ResponseCodeMessage{
   static const String UNAUTHORISED = "Unauthorised User, try again later";
   static const String NOT_FOUND = "Url Not Found, try again later";
   static const String INTERNAL_SERVER_ERROR = "Server Errorr";
+  static const String DEFAULT = "Something wrong happened";
 
   //local status code
   static const String UNKNOWN = "Something wrong happened";
@@ -140,7 +144,7 @@ class ResponseCodeMessage{
 }
 
 class AppInternalStatus{
-  static const int SUCCESS = 0;
+  static const int SUCCESS = 200;
   static const int FAILURE = 1;
 
 }

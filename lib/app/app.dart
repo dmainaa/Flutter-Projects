@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: Routes.splashRoute,
+      initialRoute: Routes.loginRoute,
       theme: getApplicationTheme(),
     );
   }

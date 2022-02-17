@@ -26,6 +26,8 @@ class CustomerResponse{
 
   //to json
   Map<String, dynamic> toJson() => _$CustomerResponseToJson(this);
+
+
 }
 
 @JsonSerializable()

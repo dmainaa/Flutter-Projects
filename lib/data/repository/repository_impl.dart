@@ -1,6 +1,7 @@
 
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:tutapp/data/data_source/remote_data_source.dart';
 import 'package:tutapp/data/network/error_handler.dart';
 import 'package:tutapp/data/network/failure.dart';
@@ -21,15 +22,19 @@ class RepositoryImpl extends Repository{
     if(await _networkInfo.isConnected){
 
       try{
+        print('Request Response Status');
         final response = await _remoteDataSource.login(loginRequest);
-
+        print('Request Response Status $response');
         if(response.status == AppInternalStatus.SUCCESS){
-          //return the right response
+          print('The request was a success');
+
           return Right(response.toDomain());
         }else{
           return Left(Failure(response.status ?? AppInternalStatus.FAILURE, response.message ?? ResponseCodeMessage.NOT_FOUND));
         }
       }catch(error){
+
+        print('The request was a failure: ');
         return Left(ErrorHandler.handle(error).failure);
       }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutapp/app/app.dart';
 import 'package:tutapp/app/di.dart';
+import 'package:tutapp/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:tutapp/presentation/login/login_viewmodel.dart';
 import 'package:tutapp/presentation/resources/assets_manager.dart';
 import 'package:tutapp/presentation/resources/color_manager.dart';
@@ -32,9 +33,7 @@ class _LoginViewState extends State<LoginView> {
   }
 
   Widget getContentWidget(){
-    return Scaffold(
-      backgroundColor: ColorManager.white,
-      body: Container(
+    return  Container(
         padding: const EdgeInsets.only(top: AppPadding.p100),
 
         child: SingleChildScrollView(
@@ -106,10 +105,10 @@ class _LoginViewState extends State<LoginView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextButton(onPressed: (){Navigator.pushReplacementNamed(context, Routes.forgotPasswordRoute);}, child:  Text(
-                    AppStrings.forgetPassword, style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 12.0), textAlign: TextAlign.end,
+                    AppStrings.forgetPassword, style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 6.0), textAlign: TextAlign.end,
                   )),
                       TextButton(onPressed: (){Navigator.pushReplacementNamed(context, Routes.registerRoute);}, child:  Text(
-                        AppStrings.registerText, style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 12.0), textAlign: TextAlign.end,
+                        AppStrings.registerText, style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 6.0), textAlign: TextAlign.end,
                       )),
                     ],
                   ),
@@ -121,13 +120,22 @@ class _LoginViewState extends State<LoginView> {
             ),
           ),
         ),
-      ),
+
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return getContentWidget() ;
+    return Scaffold(
+      body: StreamBuilder<FlowState>(
+        stream: _viewModel.outputState,
+        builder: (context, snapshot){
+          return snapshot.data?.getScreenWidget(context, getContentWidget(), (){
+//            _viewModel.loginObject;
+          }) ?? getContentWidget();
+        },
+      ),
+    ) ;
   }
 
   @override
