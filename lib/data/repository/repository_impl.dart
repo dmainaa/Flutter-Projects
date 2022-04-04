@@ -21,6 +21,19 @@ class RepositoryImpl extends Repository{
 
     if(await _networkInfo.isConnected){
 
+//        print('Request Response Status');
+//
+//        final response = await _remoteDataSource.login(loginRequest);
+//
+//        if(response.status == AppInternalStatus.SUCCESS){
+//
+//        print('The request was a success');
+//
+//        return Right(response.toDomain());
+//      }else{
+//        return Left(Failure(response.status ?? AppInternalStatus.FAILURE, response.message ?? ResponseCodeMessage.NOT_FOUND));
+//      }
+
       try{
         print('Request Response Status');
         final response = await _remoteDataSource.login(loginRequest);
@@ -30,6 +43,7 @@ class RepositoryImpl extends Repository{
 
           return Right(response.toDomain());
         }else{
+          print('The request was a failure: ');
           return Left(Failure(response.status ?? AppInternalStatus.FAILURE, response.message ?? ResponseCodeMessage.NOT_FOUND));
         }
       }catch(error){
@@ -39,7 +53,9 @@ class RepositoryImpl extends Repository{
       }
 
     }else{
+
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+
     }
   }
 }

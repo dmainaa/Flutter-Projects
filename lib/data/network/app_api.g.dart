@@ -26,13 +26,14 @@ class _AppServiceClient implements AppServiceClient {
       'imei': imei,
       'deviceType': deviceType
     };
-    final _result = await _dio.fetch<Map<String, dynamic>>(
+    final _result = await _dio.fetch<String>(
         _setStreamType<AuthenticationResponse>(
             Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
                 .compose(_dio.options, '/customer/login',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = AuthenticationResponse.fromJson(_result.data!);
+    print(_result.data);
+    final value = AuthenticationResponse.fromJson(jsonDecode(_result.data!));
     return value;
   }
 

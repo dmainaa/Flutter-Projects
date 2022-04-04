@@ -84,6 +84,7 @@ class OnboardingViewModel extends BaseViewModel with OnBoardingViewModelInputs, 
 }
 
 abstract class OnBoardingViewModelInputs{
+
     void goNext(); //When the user clicks the right arrow
     void goPrevious();
     void onPageChanged(int index);
