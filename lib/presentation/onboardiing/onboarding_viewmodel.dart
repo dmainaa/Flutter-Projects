@@ -43,7 +43,9 @@ class OnboardingViewModel extends BaseViewModel with OnBoardingViewModelInputs, 
 
     int previousIndex = _currentIndex -- ;
     if(previousIndex == -1){
-      _currentIndex = _list.length -1;//This will create an infinite loop
+
+      _currentIndex = _list.length -1;
+      //This will create an infinite loop
     }
 
 

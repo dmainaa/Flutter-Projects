@@ -84,6 +84,21 @@ class EmptyState extends FlowState {
   }
 }
 
+class SuccessState extends FlowState {
+  String message;
+  SuccessState(this.message);
+
+  @override
+  StateRendererType getStateRendererType() {
+    return StateRendererType.POPUP_SUCCESS;
+  }
+
+  @override
+  String getMessage() {
+    return message;
+  }
+}
+
 extension FlowStateExtension on FlowState{
   Widget getScreenWidget(BuildContext context, Widget contentScreenWidget, Function retryActionFunction){
       switch(this.runtimeType){
@@ -112,6 +127,15 @@ extension FlowStateExtension on FlowState{
           }
 
         }
+        case SuccessState: {
+          dismissDialog(context);
+          
+          showPopUp(context, StateRendererType.POPUP_SUCCESS, getMessage(), title: AppStrings.sucess);
+
+          return contentScreenWidget;
+
+
+        }
         default: {
             return contentScreenWidget;
         }
@@ -125,10 +149,14 @@ extension FlowStateExtension on FlowState{
   }
   _isThereCurrentDialogShowing(BuildContext context)=> ModalRoute.of(context)?.isCurrent != true;
 
-  showPopUp(BuildContext context, StateRendererType stateRendererType, String message){
+  showPopUp(BuildContext context, StateRendererType stateRendererType, String message, {String title = EMPTY}){
 
     WidgetsBinding.instance?.addPostFrameCallback((_) => showDialog(
         context: context,
-        builder: (BuildContext context) => StateRenderer(stateRendererType: stateRendererType, message: message, retryActionFunction: (){}) ));
+        builder: (BuildContext context) => StateRenderer(
+            stateRendererType: stateRendererType,
+            message: message,
+            title: title,
+            retryActionFunction: (){}) ));
   }
 }

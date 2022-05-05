@@ -10,7 +10,9 @@ import 'package:tutapp/data/network/dio_factory.dart';
 import 'package:tutapp/data/network/network_info.dart';
 import 'package:tutapp/data/repository/repository_impl.dart';
 import 'package:tutapp/domain/repository/repository.dart';
+import 'package:tutapp/domain/usecase/forgotpassword_usecase.dart';
 import 'package:tutapp/domain/usecase/login_usecase.dart';
+import 'package:tutapp/presentation/forgot_password/forgot_passwordviewmodel.dart';
 import 'package:tutapp/presentation/login/login_viewmodel.dart';
 
 final instance = GetIt.instance;
@@ -56,6 +58,10 @@ initLoginModule(){
   if(!GetIt.I.isRegistered<LoginUseCase>()){
     instance.registerFactory<LoginUseCase>(() => LoginUseCase(instance()));
     instance.registerFactory<LoginViewModel>(() => LoginViewModel(instance()));
+  }
+  if(!GetIt.I.isRegistered<ForgotPasswordUseCase>()){
+    instance.registerFactory<ForgotPasswordUseCase>(() => ForgotPasswordUseCase(instance()));
+    instance.registerFactory<ForgotPasswordViewModel>(() => ForgotPasswordViewModel(instance()));
   }
 
 }

@@ -31,6 +31,12 @@ class Authentication{
   Authentication(this.customer, this.contact);
 }
 
+class ResetPasswordResponse{
+    String suppport;
+
+    ResetPasswordResponse(this.suppport);
+}
+
 class DeviceInfo{
   String name;
   String identifier;

@@ -14,6 +14,8 @@ class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewM
   StreamController _passwordStreamController = StreamController<String>.broadcast();
   StreamController _allInputIsValidController = StreamController<void>.broadcast();
 
+  StreamController isUserLoggedInSuccessfully = StreamController<bool>.broadcast();
+
   var loginObject = LoginObject("", "");
 
   LoginUseCase _loginUseCase;
@@ -38,6 +40,7 @@ class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewM
     _userNameStreamController.close();
     _passwordStreamController.close();
     _allInputIsValidController.close();
+    isUserLoggedInSuccessfully.close();
   }
 
   @override
@@ -103,7 +106,9 @@ class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewM
 
     }, (data) => {
 
-        inputState.add(ContentState())
+        inputState.add(ContentState()),
+
+        isUserLoggedInSuccessfully.add(true)
 
 
     });

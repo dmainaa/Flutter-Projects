@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:tutapp/app/app.dart';
+import 'package:tutapp/app/app_prefs.dart';
 import 'package:tutapp/domain/model/model.dart';
 
 import 'package:tutapp/presentation/onboardiing/onboarding_viewmodel.dart';
@@ -8,6 +11,7 @@ import 'package:tutapp/presentation/resources/color_manager.dart';
 import 'package:tutapp/presentation/resources/routes_manager.dart';
 import 'package:tutapp/presentation/resources/strings_manager.dart';
 import 'package:tutapp/presentation/resources/value_manager.dart';
+import 'package:tutapp/app/di.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -17,17 +21,16 @@ class OnBoardingView extends StatefulWidget {
 
 class _OnBoardingViewState extends State<OnBoardingView> {
 
-
-
-
-
   String string14 = "fkalfa";
+
+  AppPreferences _apppreferences = instance<AppPreferences>();
 
   PageController _pageController = PageController(initialPage: 0);
 
   OnboardingViewModel _viewModel = OnboardingViewModel();
 
   _bind(){
+    _apppreferences.setOnBoardingScreenViewed();
     _viewModel.start();
   }
 
@@ -35,8 +38,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   @override
   void dispose() {
+
     _viewModel.dispose();
     super.dispose();
+
   }
 
   @override
