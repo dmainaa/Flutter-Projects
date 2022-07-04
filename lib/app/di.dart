@@ -2,6 +2,7 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tutapp/app/app_prefs.dart';
 import 'package:tutapp/data/data_source/remote_data_source.dart';
@@ -12,8 +13,10 @@ import 'package:tutapp/data/repository/repository_impl.dart';
 import 'package:tutapp/domain/repository/repository.dart';
 import 'package:tutapp/domain/usecase/forgotpassword_usecase.dart';
 import 'package:tutapp/domain/usecase/login_usecase.dart';
+import 'package:tutapp/domain/usecase/register_usecase.dart';
 import 'package:tutapp/presentation/forgot_password/forgot_passwordviewmodel.dart';
 import 'package:tutapp/presentation/login/login_viewmodel.dart';
+import 'package:tutapp/presentation/register/register_viewmodel.dart';
 
 final instance = GetIt.instance;
 
@@ -64,4 +67,14 @@ initLoginModule(){
     instance.registerFactory<ForgotPasswordViewModel>(() => ForgotPasswordViewModel(instance()));
   }
 
+
+
+}
+
+initRegisterModule(){
+  if(!GetIt.I.isRegistered<RegisterUseCase>()){
+    instance.registerFactory<RegisterUseCase>(() => RegisterUseCase(instance()));
+    instance.registerFactory<RegisterViewModel>(() => RegisterViewModel(instance()));
+    instance.registerFactory<ImagePicker>(() => ImagePicker());
+  }
 }

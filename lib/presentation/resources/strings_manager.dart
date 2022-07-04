@@ -13,6 +13,7 @@ class AppStrings{
   static const String onBoardingSubTitle5 = "Tut app is an awesome flutter application using clean architecture #5";
   static const String skip = "Skip";
   static const String username = "Username";
+  static const String mobileNumber = "Mobile Number";
   static const String email = "Email";
   static const String usernameError = "Invalid Username";
   static const String passwordError = "Invalid Password";
@@ -24,5 +25,10 @@ class AppStrings{
   static const String retry_again = "Try Again";
   static const String ok = "Ok";
   static const String sucess = "Success";
+  static const String profilePicture = "Profile Picture";
+  static const String photoGallery = "Photo from Gallery";
+  static const String photoPicture= "Photo from Picture";
+  static const String register= "Register";
+  static const String haveAnAccount= "Already have an account? Login";
 
 }

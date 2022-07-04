@@ -8,3 +8,14 @@ class LoginObject with _$LoginObject{
   factory LoginObject(String username, String password) = _LoginObject;
   
 }
+
+@freezed
+class RegisterObject with _$RegisterObject{
+  factory RegisterObject(String countryMobileCode,
+  String userName,
+  String email,
+  String mobileNumber,
+  String password,
+  String profilePicture) = _RegisterObject;
+
+}

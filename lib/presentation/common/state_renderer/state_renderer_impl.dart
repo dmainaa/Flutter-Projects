@@ -119,11 +119,14 @@ extension FlowStateExtension on FlowState{
         case ErrorState: {
           dismissDialog(context);
           if(getStateRendererType() == StateRendererType.POPUP_ERROR_STATE){
-            showPopUp(context, getStateRendererType(), getMessage());
 
+            showPopUp(context, getStateRendererType(), getMessage());
             return contentScreenWidget;
+
           }else{
+
             return StateRenderer(stateRendererType: getStateRendererType(), message: getMessage(), retryActionFunction: retryActionFunction,);
+
           }
 
         }

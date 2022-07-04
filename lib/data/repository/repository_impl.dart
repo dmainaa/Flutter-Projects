@@ -77,8 +77,8 @@ class RepositoryImpl extends Repository{
       try{
         print('Request Response Status');
         final response = await _remoteDataSource.register(registerRequest);
-        print('Request Response Status $response');
-        if(response.status == AppInternalStatus.SUCCESS){
+
+        if(true){
           print('The request was a success');
 
           return Right(response.toDomain());
@@ -87,8 +87,7 @@ class RepositoryImpl extends Repository{
           return Left(Failure(response.status ?? AppInternalStatus.FAILURE, response.message ?? ResponseCodeMessage.NOT_FOUND));
         }
       }catch(error){
-
-        print('The request was a failure: ');
+        print(error.toString());
         return Left(ErrorHandler.handle(error).failure);
       }
 
